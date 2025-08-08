@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us - AZoom Car Rental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e0f7f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #35f0d1, #10c1a7);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav {
+      margin-top: 0.6rem;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #10c1a7;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .contact-info {
+      line-height: 1.6;
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact-info strong {
+      color: #003366;
+    }
+    iframe {
+      border-radius: 8px;
+      border: 0;
+      width: 100%;
+      height: 250px;
+      margin-top: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #003366;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      background-color: #00c1a7;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+    }
+    button:hover {
+      background-color: #009e85;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="cars.html">Cars</a>
+      <a href="reservation.html">Reserve</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Get in Touch with Us</h2>
+    <div class="contact-info">
+      <p><strong>Head Office:</strong></p>
+      <p><strong>Phone:</strong> +65 9123 4567</p>
+      <p><strong>Address:</strong> 123 Orchard Road, #12-34, Singapore 238888</p>
+      <p><strong>Person In Charge:</strong> Mr. David Tan</p>
+      <p>Email: <a href="mailto:contact@azoomcarrental.sg">contact@azoomcarrental.sg</a></p>
+    </div>
+
+    <hr />
+
+    <h2>Our Branch Offices</h2>
+
+    <!-- Jurong Branch -->
+    <section>
+      <h3>Jurong Branch</h3>
+      <p>Block 456 Jurong West Ave 1, #01-123, Singapore 640456</p>
+      <p>Phone: +65 6221 8888</p>
+      <p><strong>Opening Hours:</strong> Mon-Sat 9am - 6pm</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.551289237241!2d103.71150861525868!3d1.3455644610445036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da8c25a1c39d07%3A0x79db78b362b2b634!2sJurong%20West%20Ave%201%2C%20Singapore!5e0!3m2!1sen!2ssg!4v1690724667521!5m2!1sen!2ssg"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- Changi Branch -->
+    <section>
+      <h3>Changi Branch</h3>
+      <p>65 Changi South Ave 1, Singapore 486045</p>
+      <p>Phone: +65 6333 7777</p>
+      <p><strong>Opening Hours:</strong> Mon-Fri 8am - 7pm, Sat 9am - 4pm</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.501230989899!2d103.97824031525866!3d1.3508506615348414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da16ca7391a4d3%3A0xd1b7bc5e2f0185e3!2sChangi%20South%20Ave%201%2C%20Singapore!5e0!3m2!1sen!2ssg!4v1690724745243!5m2!1sen!2ssg"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- Woodlands Branch -->
+    <section>
+      <h3>Woodlands Branch</h3>
+      <p>789 Woodlands Ave 6, #02-111, Singapore 730789</p>
+      <p>Phone: +65 6444 9999</p>
+      <p><strong>Opening Hours:</strong> Mon-Sun 9am - 6pm</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9119369830517!2d103.78168031525862!3d1.4370349608579676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da00f5f8eadebb%3A0x11aaec5d3ac3b96f!2sWoodlands%20Ave%206%2C%20Singapore!5e0!3m2!1sen!2ssg!4v1690724813631!5m2!1sen!2ssg"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <hr />
+
+    <h2>Send Us a Message</h2>
+    <form id="contactForm" novalidate>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Azoom Car Rental! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

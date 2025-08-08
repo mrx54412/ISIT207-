@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Cars - Azoom Car Rental</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e0f7f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #35f0d1, #10c1a7);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      margin-top: 0.6rem;
+    }
+
+    nav a {
+      margin: 0 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+      text-shadow: 0 0 5px #ffd700;
+    }
+
+    main {
+      padding: 40px 20px;
+      flex: 1;
+    }
+
+    .cars-section {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cars-section h2 {
+      text-align: center;
+      color: #10c1a7;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .car-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .car-card-content {
+      padding: 20px;
+    }
+
+    .car-card-content h3 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .car-card-content p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .car-card-content button {
+      background-color: #10c1a7;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-top: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .car-card-content button:hover {
+      background-color: #0d997e;
+    }
+
+    .price-info, .specs-info {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .specs-info {
+      background-color: #f0fbfa;
+      border-left: 4px solid #10c1a7;
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 10px;
+      color: #333;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .spec-section h4 {
+      margin-top: 15px;
+      color: #0d997e;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .specs-info ul {
+      margin: 8px 0 15px 20px;
+    }
+
+    .specs-info li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 12px 0;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Cars</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="cars.html">Cars</a>
+      <a href="reservation.html">Reserve</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cars-section">
+      <h2>Choose Your Ride</h2>
+      <div class="car-grid">
+
+        <!-- Car 1: Tesla Model X -->
+        <div class="car-card">
+          <img src="Tesla Model X.webp" alt="Tesla Model X" />
+          <div class="car-card-content">
+            <h3>Tesla Model X</h3>
+            <p>The Tesla Model X is an all-electric SUV known for its falcon-wing rear doors, long range, and impressive acceleration.</p>
+            <button onclick="location.href='reservation.html'">Reserve Now</button>
+            <button onclick="showPrice('Tesla Model X')">View Price</button>
+            <button onclick="showSpecs('Tesla Model X')">View Specs</button>
+            <div class="price-info" id="Tesla Model X-pricing"></div>
+            <div class="specs-info" id="Tesla Model X-specs"></div>
+          </div>
+        </div>
+
+        <!-- Car 2: Kia EV3 -->
+        <div class="car-card">
+          <img src="Kia EV3.jpeg" alt="Kia EV3" />
+          <div class="car-card-content">
+            <h3>Kia EV3</h3>
+            <p>The Kia EV3 is a compact electric SUV designed with modern aesthetics, sustainable materials, and smart interior features.</p>
+            <button onclick="location.href='reservation.html'">Reserve Now</button>
+            <button onclick="showPrice('Kia EV3')">View Price</button>
+            <button onclick="showSpecs('Kia EV3')">View Specs</button>
+            <div class="price-info" id="Kia EV3-pricing"></div>
+            <div class="specs-info" id="Kia EV3-specs"></div>
+          </div>
+        </div>
+
+        <!-- Car 3: BYD Sealion 7 -->
+        <div class="car-card">
+          <img src="BYD Sealion 7.webp" alt="BYD Sealion 7" />
+          <div class="car-card-content">
+            <h3>BYD Sealion 7</h3>
+            <p>The BYD Sealion 7 is a premium electric SUV offering cutting-edge tech, sleek design, and a powerful performance lineup.</p>
+            <button onclick="location.href='reservation.html'">Reserve Now</button>
+            <button onclick="showPrice('BYD Sealion 7')">View Price</button>
+            <button onclick="showSpecs('BYD Sealion 7')">View Specs</button>
+            <div class="price-info" id="BYD Sealion 7-pricing"></div>
+            <div class="specs-info" id="BYD Sealion 7-specs"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Azoom Car Rental</p>
+  </footer>
+
+  <script>
+    const carPrices = {
+      "Tesla Model X":   { Daily: 100, Weekly: 600, Monthly: 2200 },
+      "Kia EV3":         { Daily: 80,  Weekly: 480, Monthly: 1800 },
+      "BYD Sealion 7":   { Daily: 90,  Weekly: 540, Monthly: 2000 }
+    };
+
+    const carSpecs = {
+      "Tesla Model X": {
+        features: [
+          "Falcon Wing Doors: Unique rear doors that open upwards",
+          "17-inch touchscreen display",
+          "22-speaker sound system",
+          "20-inch or 22-inch wheels",
+          "Supercharging capability"
+        ],
+        interior: ["Seating: Up to 6"],
+        performance: [
+          "0-60 mph: 2.5 seconds (Plaid)",
+          "Top Speed: 163 mph",
+          "1/4 Mile: 9.9 seconds",
+          "Peak Power: 1,020 hp",
+          "Powertrain: Tri Motor",
+          "Towing Capacity: 5,000 lbs"
+        ]
+      },
+      "Kia EV3": {
+        features: [
+          "12-inch instrument cluster, 5-inch HVAC touchscreen, and 12-inch infotainment touchscreen",
+          "Recycled interior materials and PET fabrics",
+          "Sliding table-style center console with storage",
+          "Relaxation mode front seats with USB-C ports",
+          "Adjustable ambient lighting",
+          "460L boot with two-tier floor and 25L frunk"
+        ],
+        interior: ["Seating: Up to 5"],
+        performance: [
+          "0-100 km/h: 7.5s (Standard) / 7.7s (Long Range Air)",
+          "Motor: Single electric motor, FWD",
+          "Horsepower: 201 hp",
+          "Torque: 209 lb-ft",
+          "Top Speed: 170 km/h (105 mph)",
+          "Range: 436 km (Standard), 604 km (Long Range Air)"
+        ]
+      },
+      "BYD Sealion 7": {
+        features: [
+          "15.6-inch rotating touchscreen for control and media",
+          "10.25-inch digital instrument cluster",
+          "12-speaker Dynaudio audio system",
+          "Apple CarPlay and Android Auto",
+          "50W wireless charging",
+          "BYD app remote control",
+          "Intelligent W-HUD: windshield heads-up display"
+        ],
+        interior: ["Seating: 5 seater"],
+        performance: [
+          "0-100 km/h in 4.5s (Dual Motor, 523hp, 690Nm torque)",
+          "0-100 km/h in 6.7s (RWD Premium, 308hp, 380Nm torque)"
+        ]
+      }
+    };
+
+    function showPrice(model) {
+      const priceDiv = document.getElementById(`${model}-pricing`);
+      const prices = carPrices[model];
+      priceDiv.innerHTML = `
+        <ul style="margin-top:10px; line-height: 1.6;">
+          <li><strong>Daily:</strong> $${prices.Daily}</li>
+          <li><strong>Weekly:</strong> $${prices.Weekly}</li>
+          <li><strong>Monthly:</strong> $${prices.Monthly}</li>
+        </ul>
+      `;
+    }
+
+    function showSpecs(model) {
+      const specsDiv = document.getElementById(`${model}-specs`);
+      const specs = carSpecs[model];
+      specsDiv.innerHTML = `
+        <div class="spec-section">
+          <h4>🚗 Car Features</h4>
+          <ul>${specs.features.map(f => `<li>${f}</li>`).join('')}</ul>
+          <h4>🛋️ Interior Space</h4>
+          <ul>${specs.interior.map(i => `<li>${i}</li>`).join('')}</ul>
+          <h4>⚡ Performance</h4>
+          <ul>${specs.performance.map(p => `<li>${p}</li>`).join('')}</ul>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

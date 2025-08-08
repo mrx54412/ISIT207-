@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You - Azoom Car Rental</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0fff9;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      color: #10c1a7;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #10c1a7;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #0b8e76;
+    }
+
+    .summary-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Thank You!</h1>
+  <div class="summary-box">
+    <p id="message">Your reservation has been received.</p>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Car:</strong> <span id="car"></span></p>
+    <p><strong>Rental Period:</strong> <span id="period"></span></p>
+    <p><strong>Start Date:</strong> <span id="startDate"></span></p>
+    <p><strong>Return Date:</strong> <span id="returnDate"></span></p>
+    <p><strong>CollectLocation:</strong> <span id ="collectLocation"></span></p>
+    <p><strong>ReturnLocation:</strong> <span id="returnLocation"></span></p>
+    <p><strong>Total Price:</strong> $<span id="price"></span></p>
+    <p><strong>Credit Card:</strong> **** **** **** <span id="ccNumber"></span></p>
+  </div>
+  <a class="button" href="home.html">Back to Home</a>
+
+  <script>
+    const details = JSON.parse(localStorage.getItem("bookingDetails"));
+
+    if (details) {
+      document.getElementById("name").innerText = details.name;
+      document.getElementById("email").innerText = details.email;
+      document.getElementById("car").innerText = details.car;
+      document.getElementById("period").innerText = details.period;
+      document.getElementById("startDate").innerText = details.startDate;
+      document.getElementById("returnDate").innerText = details.returnDate;
+      document.getElementById("collectLocation").innerText = details.collectLocation;
+      document.getElementById("returnLocation").innerText = details.returnLocation;
+      document.getElementById("price").innerText = details.price;
+      document.getElementById("ccNumber").innerText = details.ccNumber.slice(-4);
+      document.getElementById("expiry").innerText = details.expiry;
+    } else {
+      document.getElementById("message").innerText = "Reservation not found.";
+    }
+  </script>
+</body>
+</html>

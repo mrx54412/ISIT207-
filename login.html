@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login / Signup - AZoom Car Rental</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e0f7f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, #35f0d1, #10c1a7);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    nav {
+      margin-top: 0.6rem;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .container h2 {
+      color: #10c1a7;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1.8px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #10c1a7;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0d997e;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .toggle-link a {
+      color: #10c1a7;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .toggle-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Toast/Popup Styling */
+    #welcomeToast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #10c1a7;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s;
+    }
+
+    #welcomeToast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to AZoom Car Rental</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="cars.html">Cars</a>
+      <a href="reservation.html">Reserve</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2 id="formTitle">Login</h2>
+
+      <div id="loginForm">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required />
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required />
+
+        <label>
+          <input type="checkbox" onclick="togglePassword('loginPassword')"> Show Password
+        </label>
+
+        <button onclick="loginUser()">Login</button>
+        <div class="toggle-link">
+          Don't have an account? <a onclick="showSignup()">Sign Up</a>
+        </div>
+      </div>
+
+      <div id="signupForm" style="display: none;">
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" required />
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" required />
+
+        <label>
+          <input type="checkbox" onclick="togglePassword('signupPassword')"> Show Password
+        </label>
+
+        <button onclick="signupUser()">Sign Up</button>
+        <div class="toggle-link">
+          Already have an account? <a onclick="showLogin()">Login</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Popup -->
+  <div id="welcomeToast"></div>
+
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function showSignup() {
+      document.getElementById("formTitle").textContent = "Sign Up";
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+    }
+
+    function showLogin() {
+      document.getElementById("formTitle").textContent = "Login";
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("signupForm").style.display = "none";
+    }
+
+    function loginUser() {
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value.trim();
+
+      if (email && password) {
+        const username = email.split("@")[0];
+        showWelcomeToast(username);
+        setTimeout(() => {
+          window.location.href = "home.html";
+        }, 2000); // Delay so user sees the toast
+      } else {
+        alert("Please enter both email and password.");
+      }
+    }
+
+    function signupUser() {
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("signupPassword").value.trim();
+
+      if (email && password) {
+        alert("Account created successfully! Please login.");
+        showLogin();
+      } else {
+        alert("Please enter both email and password to sign up.");
+      }
+    }
+
+    function showWelcomeToast(username) {
+      const toast = document.getElementById("welcomeToast");
+      toast.textContent = "Welcome, " + username + "!";
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
